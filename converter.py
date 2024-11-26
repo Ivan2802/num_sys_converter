@@ -57,6 +57,7 @@ def convert_to_10(num, basis):
         return str(convert_num) + '.' + str(convert_float_part)[2:]
 
 def convert(num, basis_from, basis_to, round_to = 100):
-    if basis_from == 10: convert_from_10(num, basis_to, round_to)
-    if basis_to == 10: convert_to_10(str(num), basis_from)
-    else: return convert_from_10(convert_to_10(str(num), basis_from), basis_to, round_to)
+    if basis_from == 10: return convert_from_10(num, basis_to, round_to)
+    if basis_to == 10: return convert_to_10(str(num).lower(), basis_from)
+    else: return convert_from_10(convert_to_10(str(num).lower(), basis_from), basis_to, round_to)
+
